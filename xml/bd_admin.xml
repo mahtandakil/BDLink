@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bd>
+<definicion>
+	<database name="ead" server="localhost" user="root" password="nuitadenui" configFolder="./XXXXXXXX/" classFolder="./XXXXXXXX/" distMod="admin" so="linux" crypt1="" crypt2="" crypt3="" sqlfiles="0">
+		<tabla name="admins" fields="6" engine="MyISAM">
+			<campo name="id" type="INT" key="PRIMARY" auto="AUTO_INCREMENT" maxsize="11" />
+			<campo name="name" type="VARCHAR" maxsize="32" />
+			<campo name="pass" type="VARCHAR" maxsize="128" />
+			<campo name="fecha" type="DATE" />
+			<campo name="token" type="VARCHAR" maxsize="128" />
+		</tabla>
+	</database>
+</definicion>
+<valores>
+</valores>
+</bd>

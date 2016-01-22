@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bd>
+<definicion>
+	<database name="db399183003" server="db399183003.db.1and1.com" user="dbo399183003" password="whyNOT41#_tocM3" configFolder="./BDLink/" classFolder="./BDLink/" distmod="sec" so="linux" crypt1="" crypt2="" crypt3="" sqlfiles="0">
+		<tabla name="base" fields="6" engine="MyISAM">
+			<campo name="id" type="INT" key="PRIMARY" auto="AUTO_INCREMENT" maxsize="11" />
+			<campo name="tag" type="VARCHAR" maxsize="4" />
+			<campo name="link" type="TEXT" />
+			<campo name="fecha" type="DATE" />
+			<campo name="disponible" type="TINYINT" maxsize="1" />
+			<campo name="click" type="INT" maxsize="11" />
+		</tabla>
+		<tabla name="alias" fields="6" engine="MyISAM">
+			<campo name="id" type="INT" key="PRIMARY" auto="AUTO_INCREMENT" maxsize="11" />
+			<campo name="vinculo" type="INT" maxsize="11" />
+			<campo name="tag" type="VARCHAR" maxsize="256" />
+			<campo name="fecha" type="DATE" />
+			<campo name="disponible" type="TINYINT" maxsize="1" />
+			<campo name="click" type="INT" maxsize="11" />
+		</tabla>
+		<tabla name="usuarios" fields="4" engine="MyISAM">
+			<campo name="id" type="INT" key="PRIMARY" auto="AUTO_INCREMENT" maxsize="11" />
+			<campo name="nick" type="VARCHAR" maxsize="24" />
+			<campo name="contra" type="VARCHAR" maxsize="64" />
+			<campo name="correo" type="VARCHAR" maxsize="128" />
+		</tabla>
+		<tabla name="enlacesVinculados" fields="4" engine="MyISAM">
+			<campo name="id" type="INT" key="PRIMARY" auto="AUTO_INCREMENT" maxsize="11" />
+			<campo name="usuario" type="INT" maxsize="11" />
+			<campo name="alias" type="INT" maxsize="11" />
+			<campo name="base" type="INT" maxsize="11" />
+		</tabla>
+		<tabla name="sistema" fields="3" engine="MyISAM">
+			<campo name="id" type="INT" key="PRIMARY" auto="AUTO_INCREMENT" maxsize="11" />
+			<campo name="registro" type="VARCHAR" maxsize="128" />
+			<campo name="valor" type="VARCHAR" maxsize="128" />
+		</tabla>
+	</database>
+</definicion>
+<valores>
+</valores>
+</bd>
