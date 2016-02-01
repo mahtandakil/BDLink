@@ -1,6 +1,6 @@
 <?php
 
-// BDLinker - PHP PDO class creator 0.9.2b
+// BDLinker - PHP PDO class creator 0.9.4
 // Config file
 
 class BDLConfig{

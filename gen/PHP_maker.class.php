@@ -12,19 +12,22 @@ class Maker{
 	var $serieKeys;
 	var $serieWhere;
 	var $serieWhere_;
+	var $permisos;
 
 //--------------------------------------------------------------------------------------------
 
-	function __construct($bd, $table){
+	function __construct($bd, $table, $destinationFolder){
 		
 		$this->bd = $bd;
 		$this->table = $table;
+		$this->destinationFolder = $destinationFolder;
 		$this->output = "";
 		$this->serieAll = "";
 		$this->serieArgs  ="";
 		$this->serieKeys = "";
 		$this->serieWhere = "";
 		$this->serieWhere_ = "";
+		$this->permisos = 0777;
 				
 	}
 	
@@ -69,7 +72,7 @@ class Maker{
 
 			echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* Crear fichero: ";
 	
-			$path = "../dist/" . $this->table->name . ".class.php";
+			$path = $this->destinationFolder . "/" . $this->table->name . ".class.php";
 			$this->f = fopen($path, "w+");
 			
 	
@@ -174,7 +177,9 @@ class Maker{
 
 	function save($data){
 		
+		$path = $this->destinationFolder . "/" . $this->table->name . ".class.php";
 		fprintf($this->f, "%s", $data);
+		chmod($path, $this->permisos);
 
 	}
 

@@ -33,7 +33,7 @@ class DataBase{
 		$this->crypt1 = Null;
 		$this->crypt2 = Null;
 		$this->crypt3 = Null;
-		$this->permisos = 0755;
+		$this->permisos = 0777;
 		
 		$this->xmlIndex = Null;
 		$this->configFolder = "";
@@ -82,7 +82,7 @@ class DataBase{
 		$this->configFolder = $valores["configFolder"];
 		$this->classFolder = $valores["classFolder"];
 		$this->destinationFolder = "../dist/" . $valores['distMod'];
-	
+		
 		echo "* Configuracion cargada<br>";
 
 	}
@@ -92,7 +92,8 @@ class DataBase{
 
 	function crearFicheroEnlace(){
 	
-		$f = fopen( "../dist/BDLink.class.php", "w+" );
+		$path = $this->destinationFolder . "/BDLink.class.php";
+		$f = fopen( $path, "w+" );
 		
 		$codigo = "";
 		$codigo = $codigo . "<?php\n\n";
@@ -103,7 +104,7 @@ class DataBase{
 		
 		foreach($this->xml->definicion->database->tabla as $table){
 			
-			$metaTable = new Table($table);
+			$metaTable = new Table($table, $this->destinationFolder);
 			$metaTable->loadTableAttributes();
 			$codigo = $codigo . "include_once \"" . $this->classFolder . "" . $metaTable->name . ".class.php\";\n";
 			
@@ -112,6 +113,8 @@ class DataBase{
 		fprintf($f, "%s", "$codigo");	
 		
 		fclose($f);
+		
+		chmod($path, $this->permisos);
 		
 		echo "* Fichero de enlace creado<br>";
 		
@@ -129,7 +132,8 @@ class DataBase{
 		mkdir($dir);
 		chmod($dir, $this->permisos);
 
-		$f = fopen( "$dir/BDLConfig.class.php", "w+" );
+		$path = "$dir/BDLConfig.class.php";
+		$f = fopen( $path, "w+" );
 	
 		$codigo = "";
 		$codigo = $codigo . "<?php\n\n";
@@ -157,6 +161,8 @@ class DataBase{
 		fprintf($f, "%s", "$codigo");	
 		
 		fclose($f);
+		
+		chmod($path, $this->permisos);
 		
 		echo "* Fichero de configuracion creado<br>";
 		
@@ -192,12 +198,12 @@ class DataBase{
 //--------------------------------------------------------------------------------------------
 	
 	function procesarTablas(){
-	
+		
 		echo "* Procesando tablas<br><br>";
 	
 		foreach($this->xml->definicion->database->tabla as $table){
 	
-			$metaTable = new Table($table);
+			$metaTable = new Table($table, $this->destinationFolder);
 			$metaTable->loadTableAttributes();
 			$metaTable->loadFields();
 			$metaTable->generate($this);

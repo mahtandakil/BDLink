@@ -15,9 +15,10 @@ class Table{
 
 //--------------------------------------------------------------------------------------------
 
-	function __construct($index){
+	function __construct($index, $destinationFolder){
 		
 		$this->index = $index;
+		$this->destinationFolder = $destinationFolder;
 		
 	}
 
@@ -81,7 +82,7 @@ class Table{
 
 	function generate($bd){
 		
-		$objGenerator = new Maker($bd, $this);
+		$objGenerator = new Maker($bd, $this, $this->destinationFolder);
 		
 		$objGenerator->generate();
 				

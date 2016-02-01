@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <bd>
 <definicion>
-	<database name="db399183003" server="db399183003.db.1and1.com" user="dbo399183003" password="whyNOT41#_tocM3" configFolder="./BDLink/" classFolder="./BDLink/" distmod="sec" so="linux" crypt1="" crypt2="" crypt3="" sqlfiles="0">
+	<database name="db399183003" server="db399183003.db.1and1.com" user="dbo399183003" password="xxxx" configFolder="./BDLink/" classFolder="./BDLink/" distmod="sec" so="linux" crypt1="" crypt2="" crypt3="" sqlfiles="0">
 		<tabla name="base" fields="6" engine="MyISAM">
 			<campo name="id" type="INT" key="PRIMARY" auto="AUTO_INCREMENT" maxsize="11" />
 			<campo name="tag" type="VARCHAR" maxsize="4" />

@@ -1,6 +1,6 @@
 <?php
 
-$VERSION = "0.9.3";
+$VERSION = "0.9.4";
 
 require_once "./PHP_cripto.php";
 require_once "./PHP_data_base.class.php";
